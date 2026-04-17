@@ -1,30 +1,27 @@
 package main
 
-func uniquePaths(nums []int) int {
-	if len(nums) == 0 {
-		return 0
+// 方法1: 动态规划 - 2D数组
+func uniquePaths(m int, n int) int {
+	// 创建 dp 数组，dp[i][j] 表示到达位置 (i,j) 的路径数
+	dp := make([][]int, m)
+	for i := range dp {
+		dp[i] = make([]int, n)
 	}
 
-	// currentSum 表示当前子数组的和
-	// maxSum 表示全局最大子数组和
-	currentSum := nums[0]
-	maxSum := nums[0]
+	// 第一行和第一列都只有 1 种路径
+	for i := 0; i < m; i++ {
+		dp[i][0] = 1
+	}
+	for j := 0; j < n; j++ {
+		dp[0][j] = 1
+	}
 
-	// 从第二个元素开始遍历
-	for i := 1; i < len(nums); i++ {
-		// 如果当前和为负数，则从当前元素重新开始
-		if currentSum < 0 {
-			currentSum = nums[i]
-		} else {
-			// 否则将当前元素加到当前和中
-			currentSum += nums[i]
-		}
-
-		// 更新最大和
-		if currentSum > maxSum {
-			maxSum = currentSum
+	// 填充 dp 数组
+	for i := 1; i < m; i++ {
+		for j := 1; j < n; j++ {
+			dp[i][j] = dp[i-1][j] + dp[i][j-1]
 		}
 	}
 
-	return maxSum
+	return dp[m-1][n-1]
 }
