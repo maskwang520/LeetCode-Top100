@@ -9,20 +9,28 @@
 ## 专业技能
 - **编程语言**：熟练掌握Java、Golang、Python，具备扎实的数据结构与算法基础
 - **AI工程化**：熟练运用Claude Code 等 AI Agent编程工具，掌握 Agent、RAG 等 AI 应用架构设计与开发流程
-- **分布式系统**：熟悉分布式理论（CAP、Raft、一致性哈希等）及主流应用框架（gRPC、Kafka 等）
+- **分布式系统**：熟悉分布式理论（CAP、Raft、一致性哈希, 分布式锁等）及主流应用框架（gRPC、消息队列等）
 - **研发效能**：熟悉 CI/CD 流程与工具链（Jenkins），具备良好的工程化与自动化意识
 
 ## 工作经历
 
 **Dell EMC — 高级开发工程师** `2022.10 - 至今`
 
-*项目一：xx App 架构升级* — Kotlin / Jetpack Compose / Hilt / Coroutines
-- 主导 Java+XML → Kotlin+Compose 全量迁移，代码量 -30%，UI 开发效率 +50%
-- 重构为 MVVM + Clean Architecture，模块解耦率提升 40%，Crash 率下降 45%
+*ECS KV 存储引擎Atlas*</br>
+作为核心开发，主导开发了ECS 内部 LSM + Raft + Badger DB 的高性能，高可用KV存储引擎Atlas
+- 实现了高性能的网络通信接口，能够满足raft 集群的网络通信以及数据传送
+- 实现了Raft Wal Log持久化接口，采用memlog + segment的磁盘存储方案，保证了Wal Log的高性能和稳定性
+- 实现对接Badger DB的接口以及相关的配置的性能调优
+- 对外提供了gRPC 以及HTTP接口，实现对Atlas的各种操作
+- 对外提供了Atlas 可观测性方案以及诊断工具
 
-*项目二：xx App 性能优化专项* — Profiler / LeakCanary / R8
-- 冷启动 3.2s→1.5s，OOM 率下降 60%，包体积缩减 25%
-- 封装通用组件库（网络/图片/日志），团队 5+ 项目复用；单测覆盖率 15%→55%
+*Atlas 管理应用Atlas Monitor*</br>
+作为核心开发, 主导开发了Atlas运维管理应用Atlas Monitor, 借鉴kubernetes Operator思想实现方案
+- 实现Atlas高可用的运维管理，采用Reconcile 思想，能够快速感知问题节点，并实现对应的运维功能
+- 实现Atlas性能以及高可用性的预警功能，能够快速感知Atlas性能以可用性问题
+- 实现Atlas运维管理的skill，使用AI能够快速实现问题诊断以及修复
+- 实现对Atlas资源的管理和限制，确保Atlas的稳定性
+- 开发Atlas测试用例以及压测工具，能够保证交付质量
 
 **蚂蚁金服消费金融信贷核心 — 高级开发工程师** `2022.01 - 2022.10`
 
