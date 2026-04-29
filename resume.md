@@ -10,7 +10,7 @@
 - **编程语言**：熟练掌握 Java、Golang、Python，具备扎实的数据结构与算法基础
 - **AI 工程化**：熟练运用 AI Agent 编程工具（Claude Code 等），掌握 Agent、RAG 等 AI 应用架构设计与落地
 - **分布式系统**：熟悉分布式理论（CAP、Raft、一致性哈希、分布式锁等），熟练使用 gRPC、Kafka 等中间件
-- **存储与数据库**：熟悉 LSM-Tree 存储引擎原理，有 Badger DB、ChromaDB 等实际开发经验
+- **存储与数据库**：熟悉 LSM-Tree 存储引擎原理，有 Badger DB等实际开发经验
 - **研发效能**：熟悉 CI/CD（Jenkins）、容器化（Docker）及可观测性体系（Prometheus/Grafana），具备良好的工程化意识
 
 ## 工作经历
@@ -37,7 +37,7 @@
 作为核心开发，设计并实现 ECS 内部知识库智能检索应用 ECS-Assistant（Python + React）
 - **文档采集与同步**：对接 Wiki 平台 API，实现全量导入与增量同步（Webhook + 定时轮询），支持 Markdown/HTML/DOCX 多格式解析
 - **文本分块策略**：设计基于语义的分块方案，按标题层级切分并保留滑动窗口重叠，确保上下文完整性
-- **向量化与存储**：使用 bge-large-en-v1.5 模型生成文档 Embedding，存储至 ChromaDB 向量数据库，支持按部门/标签的元数据过滤
+- **向量化与存储**：使用BGE-M3模型生成文档 Embedding，存储至Qdrant向量数据库，支持按部门/标签的元数据过滤
 - **混合检索与排序**：实现语义向量检索 + BM25 关键词检索双路召回，通过 RRF 融合排序 + Rerank 精排，提升检索准确率
 - **前端交互**：基于 React 构建搜索界面，支持实时检索、结果高亮与原文跳转
 
