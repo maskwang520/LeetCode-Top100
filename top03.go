@@ -1,17 +1,26 @@
 package main
 
 func lengthOfLongestSubstring(s string) int {
-	left, right, maxLen := 0, 0, 0
+	maxLen := 0
 	m := map[byte]struct{}{}
-	for right < len(s) {
-		if _, ok := m[s[right]]; !ok {
-			m[s[right]] = struct{}{}
-			right++
-		} else {
-			delete(m, s[left])
-			left++
+	left, right := 0, 0
+	for i := 0; i < len(s); i++ {
+		right = i
+		_, ok := m[s[i]]
+		if ok {
+			for left < right {
+				if s[left] != s[right] {
+					delete(m, s[left])
+					left++
+				} else {
+					left++
+					break
+				}
+			}
 		}
-		maxLen = max(maxLen, right-left)
+		m[s[i]] = struct{}{}
+		maxLen = max(maxLen, len(m))
+
 	}
 
 	return maxLen
